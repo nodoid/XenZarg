@@ -9,14 +9,14 @@ namespace XenZarg.Core.Input;
 /// </summary>
 public sealed class TiltMapper
 {
-    /// <summary>Tilt (in g) that gives full deflection, roughly 20 degrees.</summary>
-    public float FullScale { get; set; } = 0.34f;
+    /// <summary>Tilt (in g) that gives full deflection, roughly 15 degrees.</summary>
+    public float FullScale { get; set; } = 0.26f;
 
-    /// <summary>Tilt (in g) ignored around neutral, roughly 3.5 degrees.</summary>
-    public float DeadZone { get; set; } = 0.06f;
+    /// <summary>Tilt (in g) ignored around neutral, roughly 2.5 degrees.</summary>
+    public float DeadZone { get; set; } = 0.045f;
 
     /// <summary>0 = no smoothing, approaching 1 = heavy smoothing.</summary>
-    public float Smoothing { get; set; } = 0.35f;
+    public float Smoothing { get; set; } = 0.2f;
 
     public float NeutralY { get; private set; }
 

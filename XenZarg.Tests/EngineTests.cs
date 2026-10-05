@@ -55,7 +55,7 @@ public class TiltMapperTests
     {
         var m = new TiltMapper();
         Assert.Equal(0f, m.Axis(0.03f));
-        Assert.Equal(0f, m.Axis(-0.05f));
+        Assert.Equal(0f, m.Axis(-0.04f));
     }
 
     [Fact]
@@ -64,7 +64,7 @@ public class TiltMapperTests
         var m = new TiltMapper();
         Assert.Equal(1f, m.Axis(0.9f));
         Assert.Equal(-1f, m.Axis(-0.9f));
-        Assert.InRange(m.Axis(0.2f), 0.4f, 0.6f);
+        Assert.InRange(m.Axis(0.2f), 0.65f, 0.8f);
     }
 
     [Fact]
