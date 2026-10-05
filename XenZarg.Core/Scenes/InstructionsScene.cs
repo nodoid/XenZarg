@@ -37,8 +37,10 @@ public sealed class InstructionsScene : Scene
         }
         if (Ticks > 10 && (input.ConfirmPressed || input.FirePressed))
         {
-            _page++;
-            if (_page >= _pages.Count)
+            // The scene switch happens on the next update, so stay on the last page until then.
+            if (_page + 1 < _pages.Count)
+                _page++;
+            else
                 Game.SwitchTo(_returnTo ?? new MenuScene(Game));
         }
     }
