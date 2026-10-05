@@ -72,7 +72,7 @@ public sealed class CaptureDirector : ISoundPlayer
         yield return new Shot("02-xenon-title", (g, s) => new TitleScene(g), 60);
         yield return new Shot("03-xenon-large-aards", (g, s) => Xenon(g, s, 2), 420);
         yield return new Shot("04-planet-radon", (g, s) => Xenon(g, s, 4), 900);
-        yield return new Shot("05-zorgon-battle-star", (g, s) => Xenon(g, s, 5), 520);
+        yield return new Shot("05-zorgon-battle-star", (g, s) => Xenon(g, s, 5), 160);
         yield return new Shot("06-zorgon-spider", (g, s) => Zorgon(g, s, "spider"), 100, Ready: Riding);
         yield return new Shot("07-zorgon-quadnogs", (g, s) => Zorgon(g, s, "reptile"), 1700);
         yield return new Shot("08-zorgon-ship", (g, s) => Zorgon(g, s, "ship"), 300, Ready: ShipBusy);
@@ -95,9 +95,9 @@ public sealed class CaptureDirector : ISoundPlayer
         yield return new Shot("video/02", (g, s) => Xenon(g, s, 1), 120, 200);
         yield return new Shot("video/03", (g, s) => Xenon(g, s, 2), 300, 170);
         yield return new Shot("video/04", (g, s) => Xenon(g, s, 4), 700, 170);
-        yield return new Shot("video/05", (g, s) => Xenon(g, s, 5), 380, 170);
+        yield return new Shot("video/05", (g, s) => Xenon(g, s, 5), 60, 170);
         yield return new Shot("video/06", (g, s) => Zorgon(g, s, "spider"), 0, 220);
-        yield return new Shot("video/07", (g, s) => Zorgon(g, s, "ship"), 700, 170);
+        yield return new Shot("video/07", (g, s) => Zorgon(g, s, "ship"), 200, 170);
         yield return new Shot("video/08", (g, s) => Zorgon(g, s, "bird"), 520, 200);
         yield return new Shot("video/09", (g, s) => Zorgon(g, s, "king"), 0, 170);
     }
