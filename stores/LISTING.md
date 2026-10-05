@@ -259,6 +259,18 @@ zorgon
 All of them are built from the game's own sprites by `tools/make_store_art.py`.
 **Packages:** `release/windows/XenZarg-1.0.0-x64.msix` and `XenZarg-1.0.0-arm64.msix` (built by `tools/build_windows.sh`; the Store signs them).
 
+**Restricted capabilities** (Partner Center › Submission options › *Why does your app need these capabilities?*)
+
+The package declares one restricted capability, `runFullTrust` (in `XenZarg.WindowsDX/Windows/AppxManifest.xml`). No other restricted or general capabilities are declared: not `internetClient`, file system access, webcam, microphone or location. Paste:
+```
+runFullTrust: XenZarg is a packaged desktop (Win32) game, built with .NET 10 and MonoGame and rendered with DirectX 11. Every packaged Win32 desktop app needs runFullTrust to start its executable (Windows.FullTrustApplication entry point). The game uses it only to run its own process. It does not use the internet, other apps or processes, the user's documents or system settings. It reads the keyboard, mouse and game controllers, draws with DirectX, plays sound with XAudio, and saves its high scores and settings in its own app data folder.
+```
+
+**Notes for certification**
+```
+No account, sign-in, network connection or purchase is needed; all content is available immediately. To play: press SPACE (or click) on the title, then SPACE on the menu to start. Z / X or the mouse move, SPACE or the left mouse button fires and jumps, cursor up or the right mouse button refuels, P pauses, Esc ends the game, F11 toggles full screen. Instructions are on the menu (I). The game is fully offline and stores only high scores and settings locally.
+```
+
 **What's new in this version**
 ```
 First release: Xenon 1 and Zorgon's Revenge together.
