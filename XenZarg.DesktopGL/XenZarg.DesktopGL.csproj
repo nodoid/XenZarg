@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Desktop OpenGL head: used for the macOS app (and runs on Linux / Windows too). -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <RollForward>Major</RollForward>
+    <PublishReadyToRun>false</PublishReadyToRun>
+    <TieredCompilation>false</TieredCompilation>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <AssemblyName>XenZarg</AssemblyName>
+    <RootNamespace>XenZarg.DesktopGL</RootNamespace>
+    <CFBundleIdentifier>uk.co.allthejohnsosns.xenzarg</CFBundleIdentifier>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XenZarg.Core\XenZarg.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="$(MonoGameVersion)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="macOS/**" />
+    <None Include="XenZarg.icns" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0-android</TargetFramework>
+    <SupportedOSPlatformVersion>23</SupportedOSPlatformVersion>
+    <ApplicationId>uk.co.allthejohnsosns.xenzarg</ApplicationId>
+    <ApplicationTitle>XenZarg</ApplicationTitle>
+    <ApplicationVersion>$(BuildNumber)</ApplicationVersion>
+    <ApplicationDisplayVersion>$(Version)</ApplicationDisplayVersion>
+    <AssemblyName>XenZarg</AssemblyName>
+    <RootNamespace>XenZarg.Android</RootNamespace>
+  </PropertyGroup>
+  <!-- Play upload key, if present. The password is never stored: pass it in XENZARG_KEYSTORE_PASS. -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Release' And Exists('$(HOME)/keys/xenzarg-upload.jks')">
+    <AndroidKeyStore>true</AndroidKeyStore>
+    <AndroidSigningKeyStore>$(HOME)/keys/xenzarg-upload.jks</AndroidSigningKeyStore>
+    <AndroidSigningKeyAlias>xenzarg</AndroidSigningKeyAlias>
+    <AndroidSigningStorePass>env:XENZARG_KEYSTORE_PASS</AndroidSigningStorePass>
+    <AndroidSigningKeyPass>env:XENZARG_KEYSTORE_PASS</AndroidSigningKeyPass>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XenZarg.Core\XenZarg.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.Android" Version="$(MonoGameVersion)" />
+  </ItemGroup>
+</Project>

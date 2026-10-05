@@ -1,0 +1,51 @@
+# Build output
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+**/bin/
+**/obj/
+
+# IDE / user files
+.idea/
+.vs/
+.vscode/
+*.user
+*.suo
+*.userprefs
+*.DotSettings.user
+
+# Packaging output
+artifacts/
+AppPackages/
+*.msix
+*.appx
+*.apk
+*.aab
+*.ipa
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Test results
+TestResults/
+*.trx
+
+# Release builds (built locally by tools/; not versioned)
+release/
+
+# Signing keys, certificates and provisioning profiles (never commit)
+keys/
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+*.cer
+*.mobileprovision
+*.provisionprofile
+*.p8
+.env
+*.env

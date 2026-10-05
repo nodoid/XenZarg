@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>XenZarg.Core</RootNamespace>
+    <AssemblyName>XenZarg.Core</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Compile against MonoGame only; each platform head supplies its own MonoGame runtime. -->
+    <PackageReference Include="MonoGame.Framework.Native" Version="$(MonoGameVersion)">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="XenZarg.Tests" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Microsoft Store package manifest. Identity and publisher are the ones reserved in Partner
+     Center; tools/build_windows.sh fills in the version and architecture. -->
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap rescap">
+
+  <Identity Name="49556nodoid.XenZarg"
+            Publisher="CN=A6EAEB04-6634-41C1-BDFE-695819ECE444"
+            Version="$(VERSION)"
+            ProcessorArchitecture="$(ARCH)" />
+
+  <Properties>
+    <DisplayName>XenZarg</DisplayName>
+    <PublisherDisplayName>all-the-johnsons</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+    <Description>Xenon 1 and Zorgon's Revenge. By PFJ, based on the PSS originals.</Description>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26100.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="en-gb" />
+  </Resources>
+
+  <Applications>
+    <Application Id="XenZarg" Executable="XenZarg.exe" EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements
+        DisplayName="XenZarg"
+        Description="Xenon 1 and Zorgon's Revenge. By PFJ, based on the PSS originals."
+        BackgroundColor="#000000"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"
+                         Square71x71Logo="Assets\Square71x71Logo.png"
+                         Square310x310Logo="Assets\Square310x310Logo.png"
+                         ShortName="XenZarg">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#000000" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <rescap:Capability Name="runFullTrust" />
+  </Capabilities>
+</Package>
