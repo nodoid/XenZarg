@@ -7,17 +7,26 @@
 # uk.co.allthejohnsosns.xenzarg (~/Downloads/relxenzargmac.provisionprofile, or set
 # XENZARG_MAC_PROFILE) and "3rd Party Mac Developer Installer: Paul Johnson (3UH7BE38T3)" for the .pkg.
 # The Windows build is made in Parallels by tools/build_windows.sh.
+#
+#   tools/build_desktop.sh        App Store build (.app + .pkg)
+#   tools/build_desktop.sh dev    development-signed .app (devel-xenzarg-macos profile) that runs locally
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
 PROJECT=XenZarg.DesktopGL/XenZarg.DesktopGL.csproj
 VERSION=$(dotnet msbuild $PROJECT -getProperty:Version)
 BUILD=$(dotnet msbuild $PROJECT -getProperty:BuildNumber)
+MODE=${1:-store}
 APP_SIGN="Apple Distribution: Paul Johnson (3UH7BE38T3)"
 PKG_SIGN="3rd Party Mac Developer Installer: Paul Johnson (3UH7BE38T3)"
 PROFILE=${XENZARG_MAC_PROFILE:-$HOME/Downloads/relxenzargmac.provisionprofile}
-
 out=release/macos
+if [[ $MODE == dev ]]; then
+  APP_SIGN="Apple Development: Paul Johnson (WFWPL93CN6)"
+  PROFILE=${XENZARG_MAC_PROFILE:-$HOME/Downloads/develxenzargmacos.provisionprofile}
+  out=release/macos-dev
+fi
+
 app="$out/XenZarg.app"
 tmp=$(mktemp -d)
 rm -rf $out && mkdir -p $out
@@ -41,8 +50,9 @@ plutil -insert DTPlatformName -string macosx "$plist"
 plutil -insert DTPlatformVersion -string "$sdk" "$plist"
 plutil -insert DTSDKName -string "macosx$sdk" "$plist"
 plutil -insert DTSDKBuild -string "$(xcrun --sdk macosx --show-sdk-build-version)" "$plist"
-plutil -insert DTXcode -string "$(xcodebuild -version | awk '/Xcode/ {split($2, v, "."); printf "%02d%d%d", v[1], v[2], v[3]}')" "$plist"
-plutil -insert DTXcodeBuild -string "$(xcodebuild -version | awk '/Build version/ {print $3}')" "$plist"
+xcode=$(xcodebuild -version 2>/dev/null)
+plutil -insert DTXcode -string "$(echo $xcode | awk '/Xcode/ {split($2, v, "."); printf "%02d%d%d", v[1], v[2], v[3]}')" "$plist"
+plutil -insert DTXcodeBuild -string "$(echo $xcode | awk '/Build version/ {print $3}')" "$plist"
 plutil -insert DTCompiler -string com.apple.compilers.llvm.clang.1_0 "$plist"
 plutil -insert BuildMachineOSBuild -string "$(sw_vers -buildVersion)" "$plist"
 printf 'APPL????' > "$app/Contents/PkgInfo"
@@ -64,6 +74,10 @@ find "$app/Contents/MonoBundle" -name '*.dylib' -print0 | xargs -0 codesign --fo
 codesign --force --sign "$APP_SIGN" --entitlements $tmp/entitlements.plist "$app"
 codesign --verify --strict --verbose=2 "$app"
 
-productbuild --component "$app" /Applications --sign "$PKG_SIGN" "$out/XenZarg.pkg"
 rm -rf $tmp
+if [[ $MODE == dev ]]; then
+  echo "macOS (development): $app"
+  exit 0
+fi
+productbuild --component "$app" /Applications --sign "$PKG_SIGN" "$out/XenZarg.pkg"
 echo "macOS: $out/XenZarg.pkg (version $VERSION, build $BUILD, $app_id)"
