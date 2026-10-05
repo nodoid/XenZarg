@@ -245,7 +245,18 @@ zorgon
 ```
 
 **Screenshots:** captured by the Windows (DirectX) build running in Parallels: `microsoft-store/screenshots-3840x2160/` (4K), `screenshots-1920x1080/` and `screenshots-1366x768/`, 10 each.
-**Store art:** `microsoft-store/box-art-2160x2160.png` (1:1 box art), `poster-art-1440x2160.png` (2:3 poster art), `store-logo-300x300.png`.
+**Store art** (in `microsoft-store/`)
+| Partner Center slot | File | Notes |
+|---|---|---|
+| 16:9 Super hero art | `super-hero-art-3840x2160.png` (also `-1920x1080`) | No title text, as the Store overlays its own; the lower left is kept clear |
+| 1:1 Box art | `box-art-2160x2160.png` | |
+| 2:3 Poster art | `poster-art-1440x2160.png` | |
+| App tile icon | `store-logo-300x300.png` | |
+| Xbox branded key art | `xbox/branded-key-art-584x800.png` | Includes the title |
+| Xbox titled hero art | `xbox/titled-hero-art-3840x2160.png` (also `-1920x1080`) | Includes the title |
+| Xbox featured promotional square art | `xbox/featured-promotional-square-art-2160x2160.png` (also `-1080x1080`) | No title |
+
+All of them are built from the game's own sprites by `tools/make_store_art.py`.
 **Packages:** `release/windows/XenZarg-1.0.0-x64.msix` and `XenZarg-1.0.0-arm64.msix` (built by `tools/build_windows.sh`; the Store signs them).
 
 **What's new in this version**

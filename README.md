@@ -79,6 +79,7 @@ XenZarg --capture <dir>/video-desktop videos
 XenZarg --capture <dir>/video-mobile videos --mobile
 tools/build_windows.sh capture                  # Windows stills, captured by the Windows build in Parallels
 python3 tools/make_store_assets.py <dir>        # with the Windows stills copied to <dir>/windows/stills
+python3 tools/make_store_art.py                 # Microsoft Store super hero art and Xbox images
 python3 tools/check_listing.py                  # character limits
 ```
 
