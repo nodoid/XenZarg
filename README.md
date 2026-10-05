@@ -35,8 +35,9 @@ By PFJ, based on the PSS originals.
 | `XenZarg.Tests` | xUnit tests, including scripted runs proving every Zorgon screen can be completed |
 
 Identifiers:
-- Bundle and package ID: `uk.co.allthejohnsosns.xenzarg`. This spelling matches the provisioning
+- Bundle ID (iOS and macOS): `uk.co.allthejohnsosns.xenzarg`. This spelling matches the provisioning
   profiles.
+- Android package name: `uk.co.allthejohnsons.xenzorg`.
 - Windows identity: `49556nodoid.XenZarg`.
 
 ## Controls

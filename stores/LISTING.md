@@ -13,7 +13,8 @@ Everything to paste into App Store Connect (iOS and Mac), Google Play Console an
 | Field | Value |
 |---|---|
 | App name | XenZarg |
-| Bundle / package ID | `uk.co.allthejohnsosns.xenzarg` (iOS, macOS, Android) |
+| Bundle ID (iOS, macOS) | `uk.co.allthejohnsosns.xenzarg` |
+| Package name (Android) | `uk.co.allthejohnsons.xenzorg` |
 | Windows package identity | `49556nodoid.XenZarg`, publisher `CN=A6EAEB04-6634-41C1-BDFE-695819ECE444` |
 | Developer / seller | Paul F. Johnson |
 | Category | Games, then Arcade |
