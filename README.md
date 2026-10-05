@@ -4,7 +4,7 @@
 Android, iOS, macOS and Windows. When the Zorgon Battle Star is destroyed, Zorgon's Revenge starts
 as the next level; rescuing Princess Roz starts the next, harder cycle of Xenon 1.
 
-By PFJ, based on the PSS originals.
+By PFJ, based on the PSS originals. Released under the [DILLIGAF License](LICENSE): do what you like with the code.
 
 ## Faithful to the Oric
 
@@ -87,3 +87,13 @@ python3 tools/check_listing.py                  # character limits
 Capture mode plays each screen on autopilot. Xenon uses an AI pilot; Zorgon follows the same
 scripted winning routes as the tests. It saves the native frames, and records the sound effects so
 the videos get a matching soundtrack.
+
+## Licence
+
+The XenZarg code, tools and documentation are released under the **[DILLIGAF License](LICENSE)**:
+use, copy, change, share or sell them however you like, with no warranty.
+
+The licence can't cover what isn't ours:
+- the original Xenon 1 and Zorgon's Revenge games and the graphics captured from them;
+- the Oric ROM font;
+- third-party packages such as MonoGame, which keep their own licences.

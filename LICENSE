@@ -1,0 +1,36 @@
+THE DILLIGAF LICENSE
+("Do I Look Like I Give A F***")
+
+Copyright © 2026 Paul F.Johnson
+
+Take it. Use it. Copy it, change it, share it, sell it, bundle it, rename it,
+put it in your own projects, ship it in your products, or print it out and
+line a birdcage with it. Do whatever you like with this software and its
+documentation, for any purpose, commercial or otherwise.
+
+You don't need to ask permission. You don't need to pay anything. You don't
+need to credit anyone (a mention is nice, but honestly, nobody's checking).
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHOR OR COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. IF IT BREAKS, YOU GET TO KEEP BOTH PIECES.
+
+--------------------------------------------------------------------------------
+This licence covers the XenZarg code, tools and documentation written for this
+project. It does not cover, and cannot grant rights in:
+
+  * The original games. Xenon 1 and Zorgon's Revenge (Oric-1/Atmos, 1983),
+    their names and characters, and the graphics captured from them, remain the
+    property of their rights holders. This includes the sprites, title artwork
+    and scenery in XenZarg.Core/Graphics/SpriteData.Xenon.cs and
+    SpriteData.Zorgon.cs, and the store images and videos in stores/ that show
+    them.
+  * The Oric ROM character set in XenZarg.Core/Oric/OricFont.cs, which belongs
+    to its rights holders.
+  * Third-party components, which keep their own licences: MonoGame (Microsoft
+    Public License) and the other NuGet packages the projects reference (see
+    their licences).
