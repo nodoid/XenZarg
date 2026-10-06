@@ -20,6 +20,8 @@ from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STORES = os.path.join(ROOT, 'stores')
+# App preview videos are saved only in ~/Movies, never in the repository.
+MOVIES = os.path.join(os.path.expanduser('~'), 'Movies', 'XenZarg')
 
 # The ten screens used for every store, in listing order.
 SHOTS = ['01-xenon-bird-aards', '02-xenon-title', '03-xenon-large-aards', '04-planet-radon',
@@ -158,11 +160,13 @@ def main(cap):
     tmp = os.path.join(cap, '_montage')
     if os.path.isdir(os.path.join(cap, 'video-mobile', 'video')):
         frames, wav, n = montage(os.path.join(cap, 'video-mobile', 'video'), tmp)
-        encode(frames, wav, os.path.join(STORES, 'app-store', 'app-preview-iphone-1920x886.mp4'), 1920, 886, False)
-        encode(frames, wav, os.path.join(STORES, 'app-store', 'app-preview-ipad-1600x1200.mp4'), 1600, 1200, False)
+        os.makedirs(MOVIES, exist_ok=True)
+        encode(frames, wav, os.path.join(MOVIES, 'XenZarg - iPhone app preview 1920x886.mp4'), 1920, 886, False)
+        encode(frames, wav, os.path.join(MOVIES, 'XenZarg - iPad app preview 1600x1200.mp4'), 1600, 1200, False)
     if os.path.isdir(os.path.join(cap, 'video-desktop', 'video')):
         frames, wav, n = montage(os.path.join(cap, 'video-desktop', 'video'), tmp)
-        encode(frames, wav, os.path.join(STORES, 'mac-app-store', 'app-preview-1920x1080.mp4'), 1920, 1080, True)
+        os.makedirs(MOVIES, exist_ok=True)
+        encode(frames, wav, os.path.join(MOVIES, 'XenZarg - Mac app preview 1920x1080.mp4'), 1920, 1080, True)
     shutil.rmtree(tmp, ignore_errors=True)
 
 

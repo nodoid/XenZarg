@@ -94,7 +94,7 @@ First release: Xenon 1 and Zorgon's Revenge together, with tilt and tap controls
 ```
 
 **Screenshots:** `app-store/iphone-6.9in-2868x1320/` (also `iphone-6.5in-2688x1242/`) and `app-store/ipad-13in-2752x2064/`, 10 each, landscape.
-**App previews:** `app-store/app-preview-iphone-1920x886.mp4` (iPhone 6.9") and `app-store/app-preview-ipad-1600x1200.mp4` (iPad 13"), 27.7 s each, H.264 with stereo AAC.
+**App previews:** `~/Movies/XenZarg/XenZarg - iPhone app preview 1920x886.mp4` (iPhone 6.9") and `~/Movies/XenZarg/XenZarg - iPad app preview 1600x1200.mp4` (iPad 13"), 27.7 s each, H.264 with stereo AAC. Videos are kept in ~/Movies, not in the repository.
 **Icon:** `app-store/icon-1024.png`.
 
 ---
@@ -132,7 +132,7 @@ By PFJ, based on the PSS originals.
 ```
 
 **Screenshots:** `mac-app-store/screenshots-2880x1800/` (or `screenshots-1440x900/`), 10.
-**App preview:** `mac-app-store/app-preview-1920x1080.mp4`, 27.7 s.
+**App preview:** `~/Movies/XenZarg/XenZarg - Mac app preview 1920x1080.mp4`, 27.7 s.
 
 ---
 

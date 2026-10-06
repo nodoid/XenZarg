@@ -49,3 +49,8 @@ keys/
 *.p8
 .env
 *.env
+
+# Videos live in ~/Movies, not in the repository
+*.mp4
+*.mov
+*.m4v
