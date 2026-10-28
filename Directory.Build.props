@@ -6,9 +6,9 @@
     <Authors>PFJ</Authors>
     <Product>XenZarg</Product>
     <Description>Xenon 1, Zorgon's Revenge and Xenon 3 - The Genesis Probe. By PFJ, based on the IJK originals.</Description>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <MonoGameVersion>3.8.5.1</MonoGameVersion>
     <!-- Store build number: bump for every App Store / Play / Partner Center upload. -->
-    <BuildNumber>2</BuildNumber>
+    <BuildNumber>1</BuildNumber>
   </PropertyGroup>
 </Project>

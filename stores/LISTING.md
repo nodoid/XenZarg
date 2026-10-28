@@ -281,7 +281,7 @@ genesis
 | Xbox featured promotional square art | `xbox/featured-promotional-square-art-2160x2160.png` (also `-1080x1080`) | No title |
 
 All of them are built from the game's own sprites by `tools/make_store_art.py`.
-**Packages:** `release/windows/XenZarg-1.0.0-x64.msix` and `XenZarg-1.0.0-arm64.msix` (built by `tools/build_windows.sh`; the Store signs them).
+**Packages:** `release/windows/XenZarg-1.1.0-x64.msix` and `XenZarg-1.1.0-arm64.msix` (built by `tools/build_windows.sh`; the Store signs them).
 
 **Restricted capabilities** (Partner Center › Submission options › *Why does your app need these capabilities?*)
 
