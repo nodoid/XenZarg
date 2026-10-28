@@ -3,6 +3,10 @@
 #   release/windows/XenZarg-<version>-<x64|arm64>.msix  (upload both to Partner Center; the Store signs them)
 #   release/windows/XenZarg-<version>-<x64|arm64>.zip   (the same game unpackaged, for testing on a PC)
 #
+# The Store rejects package versions whose revision is not zero, so the MSIX uses
+# <version>.0 rather than <version>.<build number>: a rejected or superseded submission is
+# replaced by raising the version (1.1.1, 1.2, ...), not the revision.
+#
 # The VM shares the Mac's Downloads folder (Z:\Downloads), so the source is staged in a temporary
 # folder there, built and tested with the Windows .NET SDK in C:\Build\XenZarg, and the published
 # builds are copied back. Pass "capture" to also record the Microsoft Store screenshots with the
@@ -56,11 +60,11 @@ for arch in x64 arm64; do
   mkdir -p $pkg && (cd $pkg && unzip -q "$OLDPWD/$out/XenZarg-$VERSION-$arch.zip")
   mkdir -p $pkg/Assets
   cp XenZarg.WindowsDX/Windows/Assets/*.png $pkg/Assets/
-  sed -e "s/\$(VERSION)/$VERSION.$BUILD/" -e "s/\$(ARCH)/$arch/" XenZarg.WindowsDX/Windows/AppxManifest.xml > $pkg/AppxManifest.xml
+  sed -e "s/\$(VERSION)/$VERSION.0/" -e "s/\$(ARCH)/$arch/" XenZarg.WindowsDX/Windows/AppxManifest.xml > $pkg/AppxManifest.xml
   python3 tools/make_msix.py $pkg "$out/XenZarg-$VERSION-$arch.msix"
   rm -rf "$(dirname $pkg)"
 done
 [[ -d "$STAGE/capture" ]] && cp -R "$STAGE/capture" "$out/capture"
 rm -rf "$STAGE"
-echo "Windows: $out/XenZarg-$VERSION-{x64,arm64}.msix (version $VERSION.$BUILD)"
+echo "Windows: $out/XenZarg-$VERSION-{x64,arm64}.msix (version $VERSION.0)"
 ls -la $out
