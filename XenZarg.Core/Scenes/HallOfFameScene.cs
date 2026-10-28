@@ -114,7 +114,7 @@ public sealed class HallOfFameScene : Scene
 
     public override void Draw(Canvas c)
     {
-        c.TextCentered(0, "XENZARG HALL OF FAME", OricColor.Green);
+        c.TextCentered(0, "THE XENON HALL OF FAME", OricColor.Green);
         if (_entering)
         {
             c.TextCentered(24, "GAME OVER", OricColor.Red);

@@ -2,14 +2,15 @@ using System;
 
 namespace XenZarg.Core.Session;
 
-/// <summary>Which of the two original games the player is currently in.</summary>
+/// <summary>Which of the three original games the player is currently in.</summary>
 public enum Episode
 {
     Xenon,
     Zorgon,
+    Genesis,
 }
 
-/// <summary>State shared across Xenon 1 and Zorgon's Revenge for one play-through.</summary>
+/// <summary>State shared across Xenon 1, Zorgon's Revenge and The Genesis Probe for one play-through.</summary>
 public sealed class GameSession
 {
     public const int StartingBases = 3;
@@ -31,10 +32,13 @@ public sealed class GameSession
     public int Bases { get; private set; }
     public int Skill { get; }
 
-    /// <summary>Number of times both games have been completed (raises difficulty).</summary>
+    /// <summary>Number of times all three games have been completed (raises difficulty).</summary>
     public int Cycle { get; private set; }
 
     public Episode Episode { get; set; } = Episode.Xenon;
+
+    /// <summary>True when the three games are played back to back; false when one was chosen on its own.</summary>
+    public bool PlayAllGames { get; set; } = true;
 
     public bool IsGameOver => Bases <= 0;
 

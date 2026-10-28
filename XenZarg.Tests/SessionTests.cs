@@ -66,6 +66,13 @@ public class SessionTests
         Assert.Equal(5, s.Difficulty);
         Assert.Equal(Episode.Xenon, s.Episode);
     }
+
+    [Fact]
+    public void TheThirdEpisodeIsTheGenesisProbe()
+    {
+        var s = new GameSession(3, 0) { Episode = Episode.Genesis };
+        Assert.Equal(Episode.Genesis, s.Episode);
+    }
 }
 
 public class HighScoreTableTests

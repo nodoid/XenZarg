@@ -8,7 +8,7 @@ namespace XenZarg.Core.Zorgon;
 
 /// <summary>
 /// The Zorgon's Revenge title: the logo, our hero walking in, Princess Roz and the scrolling
-/// credits (now crediting PFJ and the PSS originals), followed by the instructions page.
+/// credits (now crediting PFJ and the IJK originals), followed by the instructions page.
 /// </summary>
 public sealed class ZorgonIntroScene : Scene
 {
@@ -28,7 +28,7 @@ public sealed class ZorgonIntroScene : Scene
         (XenZargGame.Credit, OricColor.Magenta),
         ("", OricColor.Black),
         ("Based on the", OricColor.White),
-        ("PSS originals", OricColor.White),
+        ("IJK originals", OricColor.White),
         ("", OricColor.Black),
         ("Rescue", OricColor.Yellow),
         ("Princess Roz", OricColor.Yellow),

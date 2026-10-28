@@ -3,8 +3,8 @@
 Everything to paste into App Store Connect (iOS and Mac), Google Play Console and Microsoft Partner Center. Character counts are within each store's limits (checked by `tools/check_listing.py`).
 
 > **Before you submit:**
-> - XenZarg reproduces the graphics, colours and play of the 1983 Oric games *Xenon 1* and *Zorgon's Revenge*. The sprites, title artwork and scenery were captured from the original games. The stores reject apps that use other people's intellectual property without permission, and may ask you to prove you have the rights. Make sure you have permission from whoever now owns the rights to both games.
-> - The in-game credit reads "By PFJ, based on the PSS originals", as requested. The surviving tape inlays, reviews and the original code all credit both games to **John S. Sinclair**, published by **IJK Software**, not PSS. Check the attribution before you publish, and change `XenZargGame.BasedOn` if needed.
+> - XenZarg reproduces the graphics, colours and play of the Oric games *Xenon 1* and *Zorgon's Revenge* (1983) and *Xenon 3 - The Genesis Probe* (IJK Software, 1985). Xenon 1 and Zorgon sprites, title artwork and scenery were captured from the originals; Xenon 3's graphics are reconstructed from its Oric screens and instructions. The stores reject apps that use other people's intellectual property without permission, and may ask you to prove you have the rights. Make sure you have permission from whoever now owns the rights to all three games.
+> - The in-game credit reads "By PFJ, based on the IJK originals". The surviving tape inlays, reviews and the original code all credit the three games to **John S. Sinclair**, published by **IJK Software**. Check the attribution before you publish, and change `XenZargGame.BasedOn` if needed.
 
 ---
 
@@ -38,22 +38,22 @@ XenZarg
 
 **Subtitle** (30 max)
 ```
-Xenon 1 + Zorgon's Revenge
+Xenon 1, Zorgon & Xenon 3
 ```
 
 **Promotional text** (170 max)
 ```
-Two classic Oric arcade games in one. Blast the Aards and the Zorgon Battle Star, then rescue Princess Roz from Zorgon's castle. Tilt to steer, tap to fire.
+Three classic Oric arcade games in one. Blast the Aards, rescue Princess Roz, then save Radon's wildlife in The Genesis Probe. Tilt to steer, tap to fire.
 ```
 
 **Keywords** (100 max)
 ```
-oric,retro,arcade,shooter,platform,8-bit,classic,xenon,zorgon,aliens,1983,space,tilt,pixel
+oric,retro,arcade,shooter,platform,8-bit,classic,xenon,zorgon,genesis,aliens,space,tilt,pixel
 ```
 
 **Description** (4000 max)
 ```
-Two classic Oric arcade games, played back to back as one adventure. Xenon 1 hands straight over to Zorgon's Revenge.
+Three classic Oric arcade games, played back to back as one adventure. Xenon 1 hands over to Zorgon's Revenge, which leads into Xenon 3 - The Genesis Probe.
 
 XENON 1
 You are a Fleet Commander of the Xenon Space Academy. Fly to the planet Radon and protect it from the Zorgon Battle Star.
@@ -72,25 +72,33 @@ The Zorgons have captured Princess Roz. Behind four doors lie four missions, eac
 - Ride the great bird up to the ledges.
 Then lay the bridge, fire the castle cannons and topple Zorgon.
 
+XENON 3 - THE GENESIS PROBE (1985)
+Radon is dying. Fly the Genesis Probe to five neighbouring planets and teleport two of every species aboard before the radiation finishes the job.
+- Rundus: aim the teleport beam and catch every species, including the red barrels.
+- Xer: slice the worms with the boomerang and catch 25 heads.
+- Somtana and Nuciro: use the teleport beam to catch two of every species and stop the red barrels.
+- Terra: use the teleport beam for two of every species and catch the red barrels.
+- Radon: dodge five waves of Zorgons. There is no weapon in the final storm.
+
 AUTHENTIC
-Every sprite and every colour was captured from the original Oric games. The game runs on the Oric's 240 x 224 screen with its eight pure colours and square-wave sound.
+Xenon 1 and Zorgon's Revenge use sprites captured from the originals. The Genesis Probe is reconstructed in the same Oric 240 x 224 screen, eight pure colours and square-wave sound.
 
 CONTROLS
 Tilt to steer, and tap anywhere to fire or jump. Tap the fuel gauge to refuel. Tap with three fingers to pause.
 
 FEATURES
-- Both games in one continuous adventure, which gets harder each time round
+- All three games in one continuous adventure, which gets harder each time round
 - Nine skill levels
 - Hall of Fame with name entry
 - Instruction screens for every level
 - No ads, no tracking and no internet connection needed
 
-By PFJ, based on the PSS originals.
+By PFJ, based on the IJK originals.
 ```
 
 **What's new** (4000 max)
 ```
-First release: Xenon 1 and Zorgon's Revenge together, with tilt and tap controls.
+Xenon 3 - The Genesis Probe added: six new planets and the hyperspace run, after Xenon 1 and Zorgon's Revenge.
 ```
 
 **Screenshots:** `app-store/iphone-6.9in-2868x1320/` (also `iphone-6.5in-2688x1242/`) and `app-store/ipad-13in-2752x2064/`, 10 each, landscape.
@@ -105,7 +113,7 @@ Use the same name, subtitle, promotional text and keywords as iOS.
 
 **Description** (4000 max)
 ```
-Two classic Oric arcade games, played back to back as one adventure. Xenon 1 hands straight over to Zorgon's Revenge.
+Three classic Oric arcade games, played back to back as one adventure. Xenon 1 hands over to Zorgon's Revenge, which leads into Xenon 3 - The Genesis Probe.
 
 XENON 1
 Fly to the planet Radon and defend it from the Zorgon Battle Star. Blast the wheeling Bird-Aards, survive the cloning Large Aards and their radiation, steer through the meteorite storm, fight the Paratrons on Radon, then hit the Battle Star's moving nuclear reactor. When your fuel runs low, dock with the mothership.
@@ -113,22 +121,30 @@ Fly to the planet Radon and defend it from the Zorgon Battle Star. Blast the whe
 ZORGON'S REVENGE
 The Zorgons have captured Princess Roz. Win the four magic stones from the spider's cavern, the Quadnogs' tower, a battle in deep space and the great bird. Then bridge the chasm, fire the castle cannons and topple Zorgon.
 
+XENON 3 - THE GENESIS PROBE (1985)
+Radon is dying. Fly the Genesis Probe to five neighbouring planets and teleport two of every species aboard before the radiation finishes the job.
+- Rundus: aim the teleport beam and catch every species, including the red barrels.
+- Xer: slice the worms with the boomerang and catch 25 heads.
+- Somtana and Nuciro: use the teleport beam to catch two of every species and stop the red barrels.
+- Terra: use the teleport beam for two of every species and catch the red barrels.
+- Radon: dodge five waves of Zorgons. There is no weapon in the final storm.
+
 AUTHENTIC
-Every sprite and every colour was captured from the original Oric games. The game runs on the Oric's 240 x 224 screen, scaled up with crisp pixels, with eight pure colours and square-wave sound.
+Xenon 1 and Zorgon's Revenge use sprites captured from the originals. The Genesis Probe is reconstructed in the same Oric 240 x 224 screen, scaled up with crisp pixels, eight pure colours and square-wave sound.
 
 CONTROLS
 Keyboard: Z and X to move, SPACE to fire or jump, cursor up to refuel, P to pause, F11 for full screen.
 Mouse: move to steer, click to fire or jump, right-click to refuel.
 
 FEATURES
-- Both games in one continuous adventure, which gets harder each time round
+- All three games in one continuous adventure, which gets harder each time round
 - Nine skill levels
 - Hall of Fame with name entry
 - Instruction screens for every level
 - Resizable window or full screen
 - No ads, no tracking and no internet connection needed
 
-By PFJ, based on the PSS originals.
+By PFJ, based on the IJK originals.
 ```
 
 **Screenshots:** `mac-app-store/screenshots-2880x1800/` (or `screenshots-1440x900/`), 10.
@@ -145,12 +161,12 @@ XenZarg
 
 **Short description** (80 max)
 ```
-Xenon 1 and Zorgon's Revenge: two classic Oric arcade games. Tilt and tap.
+Xenon 1, Zorgon's Revenge and Xenon 3: three Oric arcade games. Tilt and tap.
 ```
 
 **Full description** (4000 max)
 ```
-Two classic Oric arcade games, played back to back as one adventure. Xenon 1 hands straight over to Zorgon's Revenge.
+Three classic Oric arcade games, played back to back as one adventure. Xenon 1 hands over to Zorgon's Revenge, which leads into Xenon 3 - The Genesis Probe.
 
 XENON 1
 You are a Fleet Commander of the Xenon Space Academy. Blast the wheeling Bird-Aards, survive the cloning Large Aards and their deadly radiation, steer through the meteorite storm, fight off the Paratrons on planet Radon, then burn through the force field and hit the moving nuclear reactor of the Zorgon Battle Star. When your fuel runs low, dock with the mothership's flashing service bay.
@@ -158,20 +174,23 @@ You are a Fleet Commander of the Xenon Space Academy. Blast the wheeling Bird-Aa
 ZORGON'S REVENGE
 The Zorgons have captured Princess Roz. Behind four doors lie four missions: the spider's cavern, the Quadnogs' tower, a battle in deep space and the ride on the great bird. Each wins a magic stone to bridge the chasm around Zorgon's castle. Then fire the castle cannons and topple Zorgon.
 
+XENON 3 - THE GENESIS PROBE (1985)
+Radon is dying. Fly the Genesis Probe to five neighbouring planets and teleport two of every species aboard. Slice worms with the boomerang, catch the red barrels, then return to Radon and dodge the final Zorgon storm.
+
 TILT TO STEER, TAP TO FIRE
 Tilt your phone or tablet to move, and tap anywhere to fire or jump. Tap the fuel gauge to refuel, and tap with three fingers to pause.
 
 AUTHENTIC
-Every sprite and every colour was captured from the original Oric games: the Oric's 240 x 224 screen, eight pure colours and square-wave sound.
+Xenon 1 and Zorgon's Revenge use sprites captured from the originals. The Genesis Probe is reconstructed in the same Oric 240 x 224 screen, eight pure colours and square-wave sound.
 
 FEATURES
-- Both games in one continuous adventure, which gets harder each time round
+- All three games in one continuous adventure, which gets harder each time round
 - Nine skill levels
 - Hall of Fame with name entry
 - Instruction screens for every level
 - No ads, no tracking and no internet connection needed
 
-By PFJ, based on the PSS originals.
+By PFJ, based on the IJK originals.
 ```
 
 **Graphics** (in `google-play/`)
@@ -184,7 +203,7 @@ By PFJ, based on the PSS originals.
 
 **Release notes** (500 max)
 ```
-First release: Xenon 1 and Zorgon's Revenge together, with tilt and tap controls.
+Xenon 3 - The Genesis Probe added: six new planets and the hyperspace run, after Xenon 1 and Zorgon's Revenge.
 ```
 
 ---
@@ -198,12 +217,12 @@ XenZarg
 
 **Short description** (1000 max)
 ```
-Xenon 1 and Zorgon's Revenge, two classic Oric arcade games played back to back as one adventure. Every sprite and colour was captured from the originals.
+Xenon 1, Zorgon's Revenge and Xenon 3 - The Genesis Probe: three classic Oric arcade games in one adventure.
 ```
 
 **Description** (10000 max)
 ```
-Two classic Oric arcade games, played back to back as one adventure. Xenon 1 hands straight over to Zorgon's Revenge.
+Three classic Oric arcade games, played back to back as one adventure. Xenon 1 hands over to Zorgon's Revenge, which leads into Xenon 3 - The Genesis Probe.
 
 XENON 1
 You are a Fleet Commander of the Xenon Space Academy. Blast the wheeling Bird-Aards, survive the cloning Large Aards and their deadly radiation, steer through the meteorite storm, fight off the Paratrons on planet Radon, then burn through the force field and hit the moving nuclear reactor of the Zorgon Battle Star. When your fuel runs low, dock with the mothership's flashing service bay.
@@ -211,21 +230,25 @@ You are a Fleet Commander of the Xenon Space Academy. Blast the wheeling Bird-Aa
 ZORGON'S REVENGE
 The Zorgons have captured Princess Roz. Behind four doors lie four missions: the spider's cavern, the Quadnogs' tower, a battle in deep space and the ride on the great bird. Each wins a magic stone to bridge the chasm around Zorgon's castle. Then fire the castle cannons and topple Zorgon.
 
+XENON 3 - THE GENESIS PROBE (1985)
+Radon is dying. Fly the Genesis Probe to five neighbouring planets and teleport two of every species aboard. Slice worms with the boomerang, catch the red barrels, then return to Radon and dodge the final Zorgon storm.
+
 CONTROLS
 Keyboard: Z and X to move, SPACE to fire or jump, cursor up to refuel, P to pause, Esc for the menu, F11 or Alt+Enter for full screen.
 Mouse: move to steer, click to fire or jump, right-click or click the fuel gauge to refuel.
 Game controllers are supported too.
 
 AUTHENTIC
-Every sprite and every colour was captured from the original Oric games: the Oric's 240 x 224 screen, eight pure colours and square-wave sound.
+Xenon 1 and Zorgon's Revenge use sprites captured from the originals. The Genesis Probe is reconstructed in the same Oric 240 x 224 screen, eight pure colours and square-wave sound.
 
-By PFJ, based on the PSS originals.
+By PFJ, based on the IJK originals.
 ```
 
 **Product features** (up to 20, 200 max each)
 ```
-Xenon 1 and Zorgon's Revenge in one continuous adventure
-Five Xenon levels and six Zorgon screens, with sprites captured from the Oric originals
+Xenon 1, Zorgon's Revenge and The Genesis Probe in one continuous adventure
+Five Xenon levels, six Zorgon screens and six Genesis planets
+Teleport capture, boomerang worms, red barrels and the final Zorgon storm
 Keyboard (Z, X, SPACE), mouse and game controller support
 Nine skill levels, getting harder each time round
 Hall of Fame with name entry
@@ -240,9 +263,9 @@ oric
 retro arcade
 shooter
 platform game
-8-bit
 xenon
 zorgon
+genesis
 ```
 
 **Screenshots:** captured by the Windows (DirectX) build running in Parallels: `microsoft-store/screenshots-3840x2160/` (4K), `screenshots-1920x1080/` and `screenshots-1366x768/`, 10 each.
@@ -274,5 +297,5 @@ No account, sign-in, network connection or purchase is needed; all content is av
 
 **What's new in this version**
 ```
-First release: Xenon 1 and Zorgon's Revenge together.
+Xenon 3 - The Genesis Probe added after Xenon 1 and Zorgon's Revenge.
 ```

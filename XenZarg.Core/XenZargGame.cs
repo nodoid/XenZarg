@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using XenZarg.Core.Audio;
+using XenZarg.Core.Genesis;
 using XenZarg.Core.Graphics;
 using XenZarg.Core.Input;
 using XenZarg.Core.Oric;
@@ -16,14 +17,14 @@ using XenZarg.Core.Zorgon;
 namespace XenZarg.Core;
 
 /// <summary>
-/// XenZarg: Xenon 1 followed by Zorgon's Revenge, by PFJ, based on the PSS originals.
+/// XenZarg: Xenon 1, Zorgon's Revenge and The Genesis Probe, by PFJ, based on the IJK originals.
 /// Renders a 240x224 Oric screen scaled to the window.
 /// </summary>
 public class XenZargGame : Game
 {
     public const int TicksPerSecond = 50;
     public const string Credit = "BY PFJ";
-    public const string BasedOn = "BASED ON THE PSS ORIGINALS";
+    public const string BasedOn = "BASED ON THE IJK ORIGINALS";
 
     private readonly GraphicsDeviceManager _graphics;
     private RenderTarget2D _target;
@@ -78,7 +79,7 @@ public class XenZargGame : Game
 
     protected override void Initialize()
     {
-        Window.Title = "XenZarg - Xenon 1 & Zorgon's Revenge";
+        Window.Title = "XenZarg - Xenon 1, Zorgon's Revenge & The Genesis Probe";
         if (!IsMobile)
         {
             Window.AllowUserResizing = true;
@@ -247,18 +248,36 @@ public class XenZargGame : Game
 
     public void ShowHallOfFame() => SwitchTo(new HallOfFameScene(this, null));
 
-    public void StartNewGame()
+    public void StartNewGame() => StartNewGameAt(Episode.Xenon, playAll: true);
+
+    /// <summary>
+    /// Starts a fresh play-through at the chosen game. With <paramref name="playAll"/> the
+    /// original three-game sequence continues after each game; otherwise that game alone is played.
+    /// </summary>
+    public void StartNewGameAt(Episode episode, bool playAll = true)
     {
         Session = new GameSession(Settings.Skill, HighScores.Best);
         Session.ExtraBaseAwarded += () => Sound.Play(Sfx.Bonus);
+        Session.Episode = episode;
+        Session.PlayAllGames = playAll;
         Input.CalibrateTilt();
         Sound.Play(Sfx.Start);
-        SwitchTo(new XenonScene(this, Session));
+        SwitchTo(episode switch
+        {
+            Episode.Zorgon => new ZorgonScene(this, Session),
+            Episode.Genesis => new GenesisScene(this, Session),
+            _ => new XenonScene(this, Session),
+        });
     }
 
     /// <summary>Called when the Zorgon battle star is destroyed: Zorgon's Revenge is the next level.</summary>
     public void XenonCompleted()
     {
+        if (!Session.PlayAllGames)
+        {
+            GameOver();
+            return;
+        }
         Session.Episode = Episode.Zorgon;
         SwitchTo(new ZorgonIntroScene(this, Session));
     }
@@ -269,9 +288,33 @@ public class XenZargGame : Game
         SwitchTo(new ZorgonScene(this, Session));
     }
 
-    /// <summary>Princess Roz rescued: start the next, harder cycle with Xenon 1 again.</summary>
+    /// <summary>Princess Roz rescued: Xenon 3 - The Genesis Probe is the third and final game.</summary>
     public void ZorgonCompleted()
     {
+        if (!Session.PlayAllGames)
+        {
+            GameOver();
+            return;
+        }
+        Session.Episode = Episode.Genesis;
+        SwitchTo(new GenesisIntroScene(this, Session));
+    }
+
+    public void StartGenesis()
+    {
+        Input.CalibrateTilt();
+        Sound.Play(Sfx.Start);
+        SwitchTo(new GenesisScene(this, Session));
+    }
+
+    /// <summary>The Zorgon mothership destroyed at Radon: start the next, harder cycle with Xenon 1.</summary>
+    public void GenesisCompleted()
+    {
+        if (!Session.PlayAllGames)
+        {
+            GameOver();
+            return;
+        }
         Session.CompleteCycle();
         Input.CalibrateTilt();
         SwitchTo(new XenonScene(this, Session));

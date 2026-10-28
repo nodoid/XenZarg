@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework.Graphics;
 using XenZarg.Core.Audio;
+using XenZarg.Core.Genesis;
+using XenZarg.Core.Genesis.Missions;
 using XenZarg.Core.Scenes;
 using XenZarg.Core.Session;
 using XenZarg.Core.Zorgon;
@@ -55,6 +57,7 @@ public sealed class CaptureDirector : ISoundPlayer
 
     private static Scene Xenon(XenZargGame g, ISoundPlayer s, int level) => new XenonDemoScene(g, level, s);
     private static Scene Zorgon(XenZargGame g, ISoundPlayer s, string screen) => new ZorgonDemoScene(g, screen, s);
+    private static Scene Genesis(XenZargGame g, ISoundPlayer s, Planet planet) => new GenesisDemoScene(g, planet, s);
 
     private static bool Riding(Scene s) =>
         s is ZorgonDemoScene z && z.Mission is PlatformMission p && p.Hero.Current == Hero.State.Riding && p.Hero.Top < 150;
@@ -64,6 +67,9 @@ public sealed class CaptureDirector : ISoundPlayer
 
     private static bool CannonFiring(Scene s) =>
         s is ZorgonDemoScene z && z.Mission is Zorgon.Missions.KingScreen k && k.Shots.Count > 0 && k.Shots[0].Y < 100;
+
+    private static bool StormBusy(Scene s) =>
+        s is GenesisDemoScene g && g.Mission is RadonBattle r && r.Enemies.Count >= 5;
 
     /// <summary>The still screenshots, in store order.</summary>
     public static IEnumerable<Shot> Stills()
@@ -86,6 +92,15 @@ public sealed class CaptureDirector : ISoundPlayer
         yield return new Shot("16-rescued", (g, s) => Zorgon(g, s, "heart"), 5);
         yield return new Shot("17-instructions", (g, s) => new InstructionsScene(g, null), 5);
         yield return new Shot("18-menu", (g, s) => new MenuScene(g), 5);
+        yield return new Shot("19-genesis-title", (g, s) => new GenesisIntroScene(g, new GameSession(5, 0)), 50);
+        yield return new Shot("20-genesis-select", (g, s) => new GenesisScene(g, new GameSession(5, 0)), 20);
+        yield return new Shot("21-genesis-hyperdrive", (g, s) => new GenesisHyperDemoScene(g, s), 150);
+        yield return new Shot("22-genesis-rundus", (g, s) => Genesis(g, s, Planet.Rundus), 300);
+        yield return new Shot("23-genesis-xer", (g, s) => Genesis(g, s, Planet.Xer), 220);
+        yield return new Shot("24-genesis-somtana", (g, s) => Genesis(g, s, Planet.Somtana), 260);
+        yield return new Shot("25-genesis-nuciro", (g, s) => Genesis(g, s, Planet.Nuciro), 260);
+        yield return new Shot("26-genesis-terra", (g, s) => Genesis(g, s, Planet.Terra), 420);
+        yield return new Shot("27-genesis-radon", (g, s) => Genesis(g, s, Planet.Radon), 900, Ready: StormBusy);
     }
 
     /// <summary>One continuous montage of the game in action (about 30 seconds).</summary>
@@ -100,6 +115,9 @@ public sealed class CaptureDirector : ISoundPlayer
         yield return new Shot("video/07", (g, s) => Zorgon(g, s, "ship"), 200, 170);
         yield return new Shot("video/08", (g, s) => Zorgon(g, s, "bird"), 520, 200);
         yield return new Shot("video/09", (g, s) => Zorgon(g, s, "king"), 0, 170);
+        yield return new Shot("video/10", (g, s) => new GenesisHyperDemoScene(g, s), 30, 170);
+        yield return new Shot("video/11", (g, s) => Genesis(g, s, Planet.Rundus), 200, 220);
+        yield return new Shot("video/12", (g, s) => Genesis(g, s, Planet.Radon), 600, 200, StormBusy);
     }
 
     public void Play(Sfx sfx, float pitch = 0f)

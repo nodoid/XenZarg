@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
 namespace XenZarg.Core.Input;
@@ -8,6 +9,10 @@ public interface IControls
     float MoveX { get; }
     float MoveY { get; }
     Vector2? Pointer { get; }
+
+    /// <summary>New touches (or mouse clicks) this tick, in virtual pixels.</summary>
+    IReadOnlyList<Vector2> Taps { get; }
+
     bool FirePressed { get; }
     bool FireHeld { get; }
     bool DisengagePressed { get; }

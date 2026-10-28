@@ -130,7 +130,7 @@ public sealed class MenuScene : Scene
 
     public override void Draw(Canvas c)
     {
-        c.TextCentered(0, "XENON 1 & ZORGON'S REVENGE", OricColor.Green);
+        c.TextCentered(0, "XENON 1, ZORGON & GENESIS PROBE", OricColor.Green);
         bool mobile = Game.IsMobile;
         c.TextAt(3, 16, mobile ? "CONTROL" : "KEY", OricColor.Cyan);
         c.TextAt(22, 16, "FUNCTION", OricColor.Cyan);

@@ -12,13 +12,18 @@ cd "$(dirname "$0")/.."
 
 VM=${XENZARG_VM:-"Windows 11"}
 VERSION=$(dotnet msbuild XenZarg.WindowsDX/XenZarg.WindowsDX.csproj -getProperty:Version)
+BUILD=$(dotnet msbuild XenZarg.WindowsDX/XenZarg.WindowsDX.csproj -getProperty:BuildNumber)
 STAGE="$HOME/Downloads/xenzarg-vm-transfer"
 WSTAGE='Z:\Downloads\xenzarg-vm-transfer'
 out=release/windows
 
 prlctl status "$VM" | grep -q running || prlctl resume "$VM" || prlctl start "$VM"
-rm -rf "$STAGE" && mkdir -p "$STAGE"
-git archive --format=tar -o "$STAGE/src.tar" HEAD
+rm -rf "$STAGE" && mkdir -p "$STAGE/src"
+# Stage the working tree, not just HEAD, so uncommitted changes are built too.
+rsync -a --exclude '.git' --exclude 'release' --exclude 'stores' --exclude 'bin' --exclude 'obj' \
+  --exclude '.DS_Store' ./ "$STAGE/src/"
+tar -cf "$STAGE/src.tar" -C "$STAGE/src" .
+rm -rf "$STAGE/src"
 
 prlctl exec "$VM" --current-user powershell -NoProfile -Command "
   \$ErrorActionPreference = 'Stop'
@@ -51,11 +56,11 @@ for arch in x64 arm64; do
   mkdir -p $pkg && (cd $pkg && unzip -q "$OLDPWD/$out/XenZarg-$VERSION-$arch.zip")
   mkdir -p $pkg/Assets
   cp XenZarg.WindowsDX/Windows/Assets/*.png $pkg/Assets/
-  sed -e "s/\$(VERSION)/$VERSION.0/" -e "s/\$(ARCH)/$arch/" XenZarg.WindowsDX/Windows/AppxManifest.xml > $pkg/AppxManifest.xml
+  sed -e "s/\$(VERSION)/$VERSION.$BUILD/" -e "s/\$(ARCH)/$arch/" XenZarg.WindowsDX/Windows/AppxManifest.xml > $pkg/AppxManifest.xml
   python3 tools/make_msix.py $pkg "$out/XenZarg-$VERSION-$arch.msix"
   rm -rf "$(dirname $pkg)"
 done
 [[ -d "$STAGE/capture" ]] && cp -R "$STAGE/capture" "$out/capture"
 rm -rf "$STAGE"
-echo "Windows: $out/XenZarg-$VERSION-{x64,arm64}.msix (version $VERSION.0)"
+echo "Windows: $out/XenZarg-$VERSION-{x64,arm64}.msix (version $VERSION.$BUILD)"
 ls -la $out

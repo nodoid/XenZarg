@@ -105,16 +105,17 @@ def oric_text(text, scale, color):
 
 
 def feature_graphic(desktop, out):
-    """1024x500 Google Play feature graphic from the two title screens."""
+    """1024x500 Google Play feature graphic from the start screen and Zorgon title."""
     g = Image.new('RGB', (1024, 500), (0, 0, 0))
-    xen = Image.open(os.path.join(desktop, '02-xenon-title.png')).convert('RGB').crop((50, 8, 190, 180))
+    # Crop the start screen's own credit lines, repeated on the right instead.
+    start = Image.open(os.path.join(desktop, '02-xenon-title.png')).convert('RGB').crop((0, 0, 240, 196))
     zor = Image.open(os.path.join(desktop, '10-zorgon-title.png')).convert('RGB').crop((40, 0, 200, 60))
-    g.paste(xen.resize((xen.width * 2, xen.height * 2), Image.NEAREST), (40, 40))
+    g.paste(start.resize((start.width * 2, start.height * 2), Image.NEAREST), (20, 54))
     g.paste(zor.resize((zor.width * 3, zor.height * 3), Image.NEAREST), (1024 - 40 - zor.width * 3, 60))
     t1 = oric_text('BY PFJ', 4, (255, 255, 255, 255))
-    t2 = oric_text('BASED ON THE PSS ORIGINALS', 3, (0, 255, 255, 255))
-    g.paste(t1, (1024 - 40 - 480 + (480 - t1.width) // 2, 290), t1)
-    g.paste(t2, (1024 - 40 - 480 + (480 - t2.width) // 2, 340), t2)
+    t2 = oric_text('BASED ON THE IJK ORIGINALS', 3, (0, 255, 255, 255))
+    g.paste(t1, (1024 - 40 - 480 + (480 - t1.width) // 2, 300), t1)
+    g.paste(t2, (1024 - 40 - 480 + (480 - t2.width) // 2, 360), t2)
     g.save(out)
     print('feature graphic', out)
 

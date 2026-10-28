@@ -23,11 +23,12 @@ SOFTWARE. IF IT BREAKS, YOU GET TO KEEP BOTH PIECES.
 This licence covers the XenZarg code, tools and documentation written for this
 project. It does not cover, and cannot grant rights in:
 
-  * The original games. Xenon 1 and Zorgon's Revenge (Oric-1/Atmos, 1983),
-    their names and characters, and the graphics captured from them, remain the
-    property of their rights holders. This includes the sprites, title artwork
-    and scenery in XenZarg.Core/Graphics/SpriteData.Xenon.cs and
-    SpriteData.Zorgon.cs, and the store images and videos in stores/ that show
+  * The original games. Xenon 1 and Zorgon's Revenge (Oric-1/Atmos, 1983) and
+    Xenon 3 - The Genesis Probe (IJK Software, 1985), their names and characters,
+    and the graphics captured or reconstructed from them, remain the property of
+    their rights holders. This includes the sprites, title artwork and scenery in
+    XenZarg.Core/Graphics/SpriteData.Xenon.cs, SpriteData.Zorgon.cs and
+    SpriteData.Genesis.cs, and the store images and videos in stores/ that show
     them.
   * The Oric ROM character set in XenZarg.Core/Oric/OricFont.cs, which belongs
     to its rights holders.

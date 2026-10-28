@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using XenZarg.Core.Audio;
 using XenZarg.Core.Input;
@@ -13,6 +14,8 @@ public sealed class FakeControls : IControls
     public float MoveX { get; set; }
     public float MoveY { get; set; }
     public Vector2? Pointer { get; set; }
+    public List<Vector2> TapList { get; } = new();
+    public IReadOnlyList<Vector2> Taps => TapList;
     public bool FirePressed { get; set; }
     public bool FireHeld { get; set; }
     public bool DisengagePressed { get; set; }

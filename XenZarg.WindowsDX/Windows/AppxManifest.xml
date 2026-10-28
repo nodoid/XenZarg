@@ -16,7 +16,7 @@
     <DisplayName>XenZarg</DisplayName>
     <PublisherDisplayName>all-the-johnsons</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
-    <Description>Xenon 1 and Zorgon's Revenge. By PFJ, based on the PSS originals.</Description>
+    <Description>Xenon 1, Zorgon's Revenge and Xenon 3 - The Genesis Probe. By PFJ, based on the IJK originals.</Description>
   </Properties>
 
   <Dependencies>
@@ -31,7 +31,7 @@
     <Application Id="XenZarg" Executable="XenZarg.exe" EntryPoint="Windows.FullTrustApplication">
       <uap:VisualElements
         DisplayName="XenZarg"
-        Description="Xenon 1 and Zorgon's Revenge. By PFJ, based on the PSS originals."
+        Description="Xenon 1, Zorgon's Revenge and Xenon 3 - The Genesis Probe. By PFJ, based on the IJK originals."
         BackgroundColor="#000000"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png">

@@ -105,6 +105,7 @@ public class LayoutTests
     {
         AssertPageFits(InstructionPages.Xenon());
         AssertPageFits(InstructionPages.Zorgon());
+        AssertPageFits(InstructionPages.Genesis());
         AssertPageFits(InstructionPages.Controls(true));
         AssertPageFits(InstructionPages.Controls(false));
     }
@@ -113,6 +114,6 @@ public class LayoutTests
     public void CreditsAreShown()
     {
         Assert.Equal("BY PFJ", XenZargGame.Credit);
-        Assert.Equal("BASED ON THE PSS ORIGINALS", XenZargGame.BasedOn);
+        Assert.Equal("BASED ON THE IJK ORIGINALS", XenZargGame.BasedOn);
     }
 }

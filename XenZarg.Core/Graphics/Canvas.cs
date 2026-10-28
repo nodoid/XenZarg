@@ -78,6 +78,22 @@ public sealed class Canvas : IDisposable
     public void TextAt(int column, int y, string text, OricColor ink) =>
         Text(column * OricFont.GlyphWidth, y, text, ink);
 
+    /// <summary>Text with every ROM glyph pixel enlarged by a whole-number scale (titles).</summary>
+    public void TextScaled(int x, int y, string text, OricColor ink, int scale)
+    {
+        var tint = ink.ToColor();
+        for (int i = 0; i < text.Length; i++)
+        {
+            int index = text[i] - OricFont.FirstChar;
+            if (index <= 0 || index >= OricFont.CharCount)
+                continue;
+            var src = new Rectangle(index * OricFont.GlyphWidth, 0, OricFont.GlyphWidth, OricFont.GlyphHeight);
+            var dest = new Rectangle(x + i * OricFont.GlyphWidth * scale, y,
+                OricFont.GlyphWidth * scale, OricFont.GlyphHeight * scale);
+            _batch.Draw(_font, dest, src, tint);
+        }
+    }
+
     /// <summary>Text horizontally centred on the 40 column screen.</summary>
     public void TextCentered(int y, string text, OricColor ink) =>
         Text((Width - text.Length * OricFont.GlyphWidth) / 2, y, text, ink);

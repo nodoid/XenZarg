@@ -7,7 +7,7 @@ namespace XenZarg.Core.Scenes;
 /// <summary>A line of an instruction page: text at a character column and pixel row.</summary>
 public readonly record struct PageLine(int Column, int Y, string Text, OricColor Ink);
 
-/// <summary>Instruction pages for both games, laid out like the Oric originals.</summary>
+/// <summary>Instruction pages for all three games, laid out like the Oric originals.</summary>
 public sealed class InstructionsScene : Scene
 {
     private readonly Scene _returnTo;
@@ -21,6 +21,7 @@ public sealed class InstructionsScene : Scene
         [
             InstructionPages.Xenon(),
             InstructionPages.Zorgon(),
+            InstructionPages.Genesis(),
             InstructionPages.Controls(game.IsMobile),
         ];
     }
@@ -62,7 +63,7 @@ public static class InstructionPages
     /// <summary>The Xenon 1 instruction page, verbatim from the Oric original.</summary>
     public static PageLine[] Xenon() =>
     [
-        new(15, 0, "INSTRUCTIONS", OricColor.White),
+        new(11, 0, "THE XENON TRILOGY", OricColor.White),
         new(2, 8, "LEVEL1", H),
         new(3, 16, "DESTROY THE BIRD-AARDS WORTH 150 Pts", T),
         new(2, 24, "LEVEL2", H),
@@ -118,6 +119,28 @@ public static class InstructionPages
         new(2, 176, "ITS CANNON.THREE HITS FROM THE LEFT", T),
         new(2, 184, "CANNON TOPPLE ZORGON.", T),
         new(2, 200, "WALKING OFF ANY EDGE IS FATAL !", OricColor.Cyan),
+    ];
+
+    /// <summary>Xenon 3 - The Genesis Probe story and its six planets.</summary>
+    public static PageLine[] Genesis() =>
+    [
+        new(7, 0, "XENON 3 - THE GENESIS PROBE", OricColor.White),
+        new(2, 8, "RADON IS DYING. FLY TO FIVE", T),
+        new(2, 16, "PLANETS AND COLLECT TWO OF", T),
+        new(2, 24, "EVERY SPECIES. THEN RETURN HOME.", T),
+        new(2, 40, "RUNDUS / SOMTANA / NUCIRO / TERRA", H),
+        new(2, 48, "TELEPORT TWO OF EVERY SPECIES WITH", T),
+        new(2, 56, "THE BEAM. CATCH THE RED BARRELS.", T),
+        new(2, 64, "LET TWO ESCAPE AND A SHIELD GOES.", T),
+        new(2, 80, "XER", H),
+        new(2, 88, "SLICE THE WORMS WITH THE BOOMERANG.", T),
+        new(2, 96, "STEER WITH LEFT AND RIGHT.", T),
+        new(2, 112, "RADON", H),
+        new(2, 120, "DODGE FIVE WAVES OF ZORGONS.", T),
+        new(2, 128, "THE FINAL BATTLE HAS NO WEAPON.", T),
+        new(2, 144, "HYPERSPACE", H),
+        new(2, 152, "HOLD THE SPEED BETWEEN THE RED", T),
+        new(2, 160, "MARKERS UNTIL THE HYPERJUMP.", T),
     ];
 
     /// <summary>Controls for the platform the game is running on.</summary>
