@@ -9,6 +9,6 @@
     <Version>1.1.0</Version>
     <MonoGameVersion>3.8.5.1</MonoGameVersion>
     <!-- Store build number: bump for every App Store / Play / Partner Center upload. -->
-    <BuildNumber>1</BuildNumber>
+    <BuildNumber>2</BuildNumber>
   </PropertyGroup>
 </Project>
